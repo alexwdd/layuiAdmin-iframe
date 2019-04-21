@@ -1,0 +1,44 @@
+<div class="layui-col-md12">
+	<div class="layui-row grid-demo">
+	
+	    <div class="layui-col-md12">
+
+			<button class="layui-btn layui-btn-sm layui-btn-danger" function="submit" method="post" url="{:url("Feedback/del")}" isMutiDml="1" isConfirm="1" confirmMsg="是否确定删除选中的数据？" inputs="id:">
+			  <i class="layui-icon">&#xe640;</i>批量删除
+			</button>
+
+			<button class="layui-btn layui-btn-sm" function="refresh">
+			  <i class="layui-icon">&#xe669;</i>刷新
+			</button>
+
+
+			<button class="layui-btn layui-btn-sm" type="button" function="query"><i class="layui-icon">&#xe615;</i>查询</button>
+	    </div>
+
+		<div class="layui-col-md12">
+	        <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isLoad="1" url="{:url('Feedback/index')}" isPage="1" sortType="1" pageSize="20" defaultForm="query_form" height="full-108"></table>	
+	        <div class="fsDatagridCols">
+				<p checkbox="true"/>	
+				<p field="name" title="姓名" width="150"/>	
+				<p field="mobile" title="电话" width="150"/>	
+				<p field="content" title="留言" width="50%"/>	
+				<p field="createTime" title="发布日期" sort="true" width="200"/>
+			</div>
+	    </div>
+	</div>
+</div>
+<script>
+layui.use('table', function(){
+	form = layui.form; 
+	//监听性别操作
+	form.on('switch(status)', function(obj){
+		url = '{:url('Feedback/status')}';
+		var id = this.value;
+		var v = 0
+		if (obj.elem.checked){
+			v = 1;
+		} 
+		$.post(url, {id: this.value,field:"status",val:v}, function (data) {console.log(data);}, "json");
+	});
+});
+</script>

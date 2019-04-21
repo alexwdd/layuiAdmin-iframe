@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$list.title}-关于我们-{:config('site.name')}</title>
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="{:config('site.keyword')}">
+<meta name="description" content="{:config('site.content')}">
+{include file="public:cssjs" /}
+<style type="text/css">
+body,html{height: auto; overflow: auto;}
+</style>
+</head>
+<body>
+{include file="public:header" /}
+
+<div class="inBanner in1">
+    <div class="inHeader">
+        <div class="pageName wow bounceInRight">关于我们</div>
+        <div class="inMenu wow fadeIn">
+            <li {eq name="list.id" value="1"}class="active"{/eq}><a href="{:url('index/about','id=1')}">公司概况</a></li>
+            <li {eq name="list.id" value="2"}class="active"{/eq}><a href="{:url('index/about','id=2')}">企业文化</a></li>
+            <li {eq name="list.id" value="3"}class="active"{/eq}><a href="{:url('index/about','id=3')}">发展历程</a></li>
+        </div>
+    </div>    
+</div>
+
+<div class="guide">
+    <div class="main">
+        <span class="layui-breadcrumb">
+            <a href="/">首页</a>
+            <a href="{:url('index/about')}">关于我们</a>
+            <a><cite>{$list.title}</cite></a>
+        </span>
+    </div>
+</div>
+
+<div class="main">
+    <div class="content">{$list.content|htmlspecialchars_decode=###}</div>
+</div>
+
+<input type="hidden" id="activeMenu" value="about" />
+{include file="public:footer" /}
+</body>
+</html>

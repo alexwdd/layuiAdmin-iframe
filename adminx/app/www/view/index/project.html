@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>工程案例-{:config('site.name')}</title>
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="{:config('site.keyword')}">
+<meta name="description" content="{:config('site.content')}">
+{include file="public:cssjs" /}
+<style type="text/css">
+body,html{height: auto; overflow: auto;}
+</style>
+</head>
+<body>
+{include file="public:header" /}
+
+<div class="inBanner in5">
+    <div class="inHeader">
+        <div class="pageName wow bounceInRight">工程案例</div>
+        <div class="inMenu wow fadeIn">
+            <li class="active"><a href="{:url('index/project')}">案例展示</a></li>
+            <li><a href="{:url('index/yjb')}">业绩表</a></li>
+        </div>
+    </div>    
+</div>
+
+<div class="guide">
+    <div class="main">
+        <span class="layui-breadcrumb">
+            <a href="/">首页</a>
+            <a><cite>工程案例</cite></a>
+        </span>
+    </div>
+</div>
+
+<div class="main">
+    <div class="piclist">
+    	{volist name="list" id="vo"}
+    	<li><div class="item"><a href="javascript:void(0)" title="{$vo.title}" class="thumbnail"><img src="{$vo.picname}"><p>{$vo.title}</p></a></div></li>
+    	{/volist}
+    </div>
+    {$page}
+</div>
+<script>
+$(function(){
+	$(".thumbnail").click(function(){
+		layer.open({
+		  type: 1,
+		  title:$(this).attr("title"),
+		  skin: 'layui-layer-rim', //加上边框
+		  area: ['60%', '80%'], //宽高
+		  content: '<div style="text-align:center; padding:10px;">'+$(this).html()+'</div>'
+		});	
+	});
+})
+</script>
+
+<input type="hidden" id="activeMenu" value="project" />
+{include file="public:footer" /}
+</body>
+</html>

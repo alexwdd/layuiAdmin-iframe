@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>产品展示-{:config('site.name')}</title>
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="{:config('site.keyword')}">
+<meta name="description" content="{:config('site.content')}">
+{include file="public:cssjs" /}
+<style type="text/css">
+body,html{height: auto; overflow: auto;}
+</style>
+</head>
+<body>
+{include file="public:header" /}
+
+<div class="inBanner in6">
+    <div class="inHeader">
+        <div class="pageName wow bounceInRight">产品展示</div>
+        <div class="inMenu wow fadeIn">
+            {volist name="cate" id="vo"}
+            <li {eq name="cid" value="$vo['id']"}class="active"{/eq}><a href="{:url('index/product','cid='.$vo['id'])}">{$vo.name}</a></li>
+            {/volist}
+        </div>
+    </div>    
+</div>
+
+<div class="guide">
+    <div class="main">
+        <span class="layui-breadcrumb">
+            <a href="/">首页</a>
+            <a><cite>产品展示</cite></a>
+        </span>
+    </div>
+</div>
+
+<div class="main">
+    <div class="piclist">
+    	{volist name="list" id="vo" empty="$empty"}
+    	<li><div class="item"><a href="{:url('index/info','id='.$vo['id'])}" title="{$vo.title}"><img src="{$vo.picname}"><p>{$vo.title}</p></a></div></li>
+    	{/volist}
+    </div>
+    {$page}
+</div>
+
+<input type="hidden" id="activeMenu" value="product" />
+{include file="public:footer" /}
+</body>
+</html>

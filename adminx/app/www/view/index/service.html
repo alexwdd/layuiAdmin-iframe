@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$list.title}-{:config('site.name')}</title>
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="{:config('site.keyword')}">
+<meta name="description" content="{:config('site.content')}">
+{include file="public:cssjs" /}
+<style type="text/css">
+body,html{height: auto; overflow: auto;}
+</style>
+</head>
+<body>
+{include file="public:header" /}
+
+<div class="inBanner in3">
+    <div class="inHeader">
+        <div class="pageName wow bounceInRight">{$list.title}</div>
+    </div>    
+</div>
+
+<div class="guide">
+    <div class="main">
+        <span class="layui-breadcrumb">
+            <a href="/">首页</a>
+            <a><cite>{$list.title}</cite></a>
+        </span>
+    </div>
+</div>
+
+<div class="main">
+    <div class="content">{$list.content|htmlspecialchars_decode=###}</div>
+</div>
+
+<input type="hidden" id="activeMenu" value="service" />
+{include file="public:footer" /}
+</body>
+</html>

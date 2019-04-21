@@ -1,0 +1,1722 @@
+---------------------------------------------------------------
+[ 2019-04-22T00:07:06+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.089848s] [吞吐率：11.13req/s] [内存消耗：3,144.68kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001103s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.016654s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000701s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:07:06+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.082011s] [吞吐率：12.19req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000843s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009379s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007636s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000333s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:07:09+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.069885s] [吞吐率：14.31req/s] [内存消耗：3,144.69kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001226s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009702s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000412s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:07:09+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.073663s] [吞吐率：13.58req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000801s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.010005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007152s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000309s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:08:47+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.068009s] [吞吐率：14.70req/s] [内存消耗：3,144.69kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001014s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009569s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000440s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:13:36+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.078910s] [吞吐率：12.67req/s] [内存消耗：3,144.69kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010844s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009299s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000421s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:13:36+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.083774s] [吞吐率：11.94req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000797s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009679s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007350s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000358s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:13:40+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.067975s] [吞吐率：14.71req/s] [内存消耗：3,144.69kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000979s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.010058s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000464s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:13:40+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.084973s] [吞吐率：11.77req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000774s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.008939s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000673s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000973s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.008026s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000413s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:14:13+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.072946s] [吞吐率：13.71req/s] [内存消耗：3,294.77kb] [文件加载：62]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.012735s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000431s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:14:13+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.088350s] [吞吐率：11.32req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000875s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009716s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007944s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000428s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:14:52+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.069118s] [吞吐率：14.47req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001011s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.012563s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000559s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:14:52+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.458346s] [吞吐率：2.18req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000884s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.007149s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007014s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000445s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:15:23+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.068402s] [吞吐率：14.62req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000910s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009830s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000449s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:15:24+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.075195s] [吞吐率：13.30req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000805s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.010374s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007744s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000373s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:08+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.066716s] [吞吐率：14.99req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000930s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.008917s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000420s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:08+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.080470s] [吞吐率：12.43req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000826s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.010068s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007754s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000364s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:10+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.066057s] [吞吐率：15.14req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000838s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009979s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000403s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:10+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.075597s] [吞吐率：13.23req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000835s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009228s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.006985s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000374s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:31+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.070582s] [吞吐率：14.17req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000959s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.013124s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000419s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:56+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.080465s] [吞吐率：12.43req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000897s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.013740s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000519s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:16:56+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.109887s] [吞吐率：9.10req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000841s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.013593s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.010404s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000414s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:00+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.077909s] [吞吐率：12.84req/s] [内存消耗：3,144.70kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000974s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.011367s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000744s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:01+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：0.073508s] [吞吐率：13.60req/s] [内存消耗：3,161.38kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000797s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009407s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007339s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000431s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:28+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.068078s] [吞吐率：14.69req/s] [内存消耗：3,144.88kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001123s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.010223s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000455s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:38+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：10.075573s] [吞吐率：0.10req/s] [内存消耗：3,161.73kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000914s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.009821s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007051s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000353s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:42+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.111017s] [吞吐率：9.01req/s] [内存消耗：3,144.88kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002424s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.019314s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000732s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:17:53+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：10.161548s] [吞吐率：0.10req/s] [内存消耗：3,161.73kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000899s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.026069s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.017312s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000470s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:19:29+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.069444s] [吞吐率：14.40req/s] [内存消耗：3,294.95kb] [文件加载：62]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000843s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.009154s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000398s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:19:39+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：10.091814s] [吞吐率：0.10req/s] [内存消耗：3,161.73kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001361s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.012082s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.011527s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000337s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:19:54+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/index/index.html
+[运行时间：0.091804s] [吞吐率：10.89req/s] [内存消耗：3,088.83kb] [文件加载：58]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Index->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\index\index.html [ array (
+  0 => 'admin',
+  1 => 'menu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000876s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_node` [ RunTime:0.009805s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '后台应用' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000886s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '内容管理' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '会员管理' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '课程管理' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '财务管理' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '管理员设置' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,`level`,`value` FROM `pm_node` WHERE  `status` = 1  AND `display` = 1  AND `level` = 2  AND `data` = '系统设置' ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000804s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:19:54+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/index/main.html
+[运行时间：0.104419s] [吞吐率：9.58req/s] [内存消耗：2,192.41kb] [文件加载：50]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Index->main[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Index.php ]
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\index\main.html [ array (
+  0 => 'admin',
+  1 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-22T00:19:56+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.102292s] [吞吐率：9.78req/s] [内存消耗：3,295.09kb] [文件加载：62]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000819s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.013668s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000499s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:20:07+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：10.101203s] [吞吐率：0.10req/s] [内存消耗：3,161.73kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000878s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.012846s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.011240s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.000324s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:20:51+08:00 ] 127.0.0.1 GET 127.0.0.3/adminx/article/index.html
+[运行时间：0.076445s] [吞吐率：13.08req/s] [内存消耗：3,294.93kb] [文件加载：62]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://127.0.0.3/adminx/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] I:\wwwroot\layuiAdmin-iframe\adminx/application/view\article\index.html [ array (
+  0 => 'admin',
+  1 => 'cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001006s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.010421s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`picname`,`fid`,`path`,`sort` FROM `pm_category` WHERE  `model` = 1 ORDER BY `path`,`id` ASC [ RunTime:0.000479s ]
+---------------------------------------------------------------
+[ 2019-04-22T00:21:02+08:00 ] 127.0.0.1 POST 127.0.0.3/adminx/article/index.html
+[运行时间：10.101511s] [吞吐率：0.10req/s] [内存消耗：3,161.73kb] [文件加载：60]
+[ info ] [ LANG ] I:\wwwroot\layuiAdmin-iframe\_core\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.3',
+  'connection' => 'keep-alive',
+  'content-length' => '15',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.3/adminx/article/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'bdshare_firstime=1520341707625; UM_distinctid=167c67843264f-06aebb0f41264d-b781636-1fa400-167c6784327385; CNZZDATA1257666429=1936134422-1545223030-%7C1545223030; PHPSESSID=s6ofcc2vv988jqvd7sp4m7av94',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\controller\Article->index[ I:\wwwroot\layuiAdmin-iframe\adminx\application\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000823s ] mysql:host=127.0.0.1;dbname=admin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_article` [ RunTime:0.011805s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pm_article` LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `pm_article` WHERE  `del` = 0 ORDER BY `id` DESC LIMIT 0,20 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pm_category` [ RunTime:0.007605s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `pm_category` WHERE  `model` = 1 [ RunTime:0.001196s ]

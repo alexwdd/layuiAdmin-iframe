@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
  RewriteEngine on
- RewriteBase /
+ RewriteBase /adminx
  RewriteCond %{REQUEST_FILENAME} !-d
  RewriteCond %{REQUEST_FILENAME} !-f
- RewriteRule ^(.*)$ index.php?s=/$1 [QSA,PT,L]
+ RewriteRule ^(.*)$ /adminx/index.php?s=/$1 [QSA,PT,L]
 </IfModule>

@@ -108,9 +108,8 @@ class Article extends Admin
 
     //获取列表
     public function getList($type=0){
-        $total = $this->count();
-        $pageSize = input('post.pageSize',20);
-
+        
+        $pageSize = input('post.limit',20);
         $field = input('post.field','id');
         $order = input('post.order','desc');
         $path = input('path');
@@ -127,23 +126,23 @@ class Article extends Admin
         if($del!=''){
             $map['status'] = $del;
         }
-
-        $pages = ceil($total/$pageSize);
-        $pageNum = input('post.pageNum',1);
-        $firstRow = $pageSize*($pageNum-1); 
         $map['del']=$type;
+
+        $total = $this->where($map)->count();
+        $pages = ceil($total/$pageSize);
+        $pageNum = input('post.page',1);
+        $firstRow = $pageSize*($pageNum-1);         
         $list = $this->where($map)->order($field.' '.$order)->limit($firstRow.','.$pageSize)->select();
         if($list) {
             $list = collection($list)->toArray();
         }
+
         $result = array(
-            'data'=>array(
-                'list'=>$list,
-                "pageNum"=>$pageNum,
-                "pageSize"=>$pageSize,
-                "pages"=>$pageSize,
-                "total"=>$total
-            )
+            'data'=>$list,
+            "pageNum"=>$pageNum,
+            "pageSize"=>$pageSize,
+            "pages"=>$pageSize,
+            "count"=>$total
         );
         return $result;        
     }

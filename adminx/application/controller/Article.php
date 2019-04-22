@@ -10,12 +10,13 @@ class Article extends Admin {
 			$result = model('Article')->getList();
 			$map['model']=$this->modelID;
 			$cateArr = db('Category')->where($map)->column('id,name');
-			foreach ($result['data']['list'] as $key => $value) {
+			foreach ($result['data'] as $key => $value) {
 				if (isset($cateArr[$value['cid']])) {
-					$result['data']['list'][$key]['cate'] = $cateArr[$value['cid']];
+					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
 				}                
-            }
-			echo $this->return_json($result);
+            }            
+            $result['code'] = 0;
+            echo json_encode($result);
     	}else{
     		$cate = model("Category")->getCate($this->modelID);
 			foreach ($cate as $key => $value) {

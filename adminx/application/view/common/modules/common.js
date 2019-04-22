@@ -51,8 +51,7 @@ layui.define(['form','table'],function(exports) {
                     }
                 });
             }
-        });
-        
+        });        
         if($("#LAY-get-vercode").length>0){
             $("#LAY-get-vercode").click();
         }
@@ -179,7 +178,6 @@ layui.define(['form','table'],function(exports) {
     //通用数据表格加载
     $(".LAY-common-table").each(function(index, obj) {
         var cols = getDatagridCols(obj);
-        console.log(cols);
         //文章管理
         table.render({
             elem: '#LAY-app-content-list',
@@ -187,11 +185,82 @@ layui.define(['form','table'],function(exports) {
             method: $(obj).attr("lay-method"),
             cols: cols.colsArr,
             page: true,
-            limit: 10,
-            limits: [10, 15, 20, 25, 30],
-            text: '对不起，加载出现异常！'
+            limit: 15,
+            limits: [10, 15, 20, 25, 30]
         });
-    })
+    });
+
+    //监听搜索
+    form.on('submit(tools-btn-search)', function(data) {
+        var tableId = ($(data.form).attr("tableId"));
+        var field = data.field;
+        //执行重载
+        table.reload(tableId, {
+            where: field
+        });
+        return false;
+    });
+
+    //监听工具栏
+    $('.layui-btn.tools-btn').on('click', function() {
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
+    });
+
+    var active = {
+        batchdel: function() {            
+            var tableId = $(this).attr('data-tableId');
+            var url = $(this).attr('url');
+            var checkStatus = table.checkStatus(tableId),
+                checkData = checkStatus.data; //得到选中的数据
+            if (checkData.length === 0) {
+                return layer.msg('请选择数据');
+            };
+            var ids = [];
+            for (var i = 0; i < checkData.length; i++) {
+                ids.push(checkData[i].id);
+            };
+            layer.confirm('确定删除吗？', function(index) {
+                //执行 Ajax 后重载
+                admin.req({
+                    url: url,
+                    data: {id:ids.join(",")},
+                    method:'post',
+                    done: function(res) {
+                        //登入成功的提示与跳转
+                        layer.msg(res.msg, {
+                            offset: '15px',
+                            icon: 1,
+                            time: 1000
+                        }, function() {
+                            table.reload(tableId);
+                        });
+                    }
+                });
+            });
+        },
+        add: function() {
+            var tableId = $(this).attr('data-tableId');
+            var url = $(this).attr('url');
+            layer.open({
+                type: 2,
+                title: $(this).attr('topTitle'),
+                content: url,
+                maxmin: true,
+                area: [$(this).attr('topWidth'), $(this).attr('topHeight')],
+                btn: ['确定', '取消'],
+                yes: function(index, layero) {
+                    //点击确认触发 iframe 内容中的按钮提交
+                    var submit = layero.find('iframe').contents().find("#layuiadmin-app-form-submit");
+                    submit.click();
+                }
+            });
+        },
+        refresh: function() {
+            var tableId = $(this).attr('data-tableId');
+            table.reload(tableId);
+        },
+    };
 
     //退出
     admin.events.logout = function() {

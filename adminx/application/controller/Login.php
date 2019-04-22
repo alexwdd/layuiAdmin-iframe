@@ -64,12 +64,12 @@ class Login extends Base {
             $res['data']['administrator'] = 0;
         }
         Session::set('userinfo', $res['data'], 'admin');
-        return $this->success('登录成功', url('adminx/index/index'));
+        return $this->success('登录成功', url('index/index'));
 	}
 
     function signout(){
         Session::delete('userinfo','admin');
         cache('access', NULL);
-        $this->success('成功退出',url('Login/index'));        
+        $this->success('成功退出',url('login/index'));        
     }
 }

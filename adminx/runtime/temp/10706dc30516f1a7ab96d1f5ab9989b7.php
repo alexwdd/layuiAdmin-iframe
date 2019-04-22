@@ -1,4 +1,19 @@
-<div class="layui-card">
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"F:\layuiAdmin-iframe\adminx/application/view\article\index.html";i:1555915977;s:56:"F:\layuiAdmin-iframe\adminx\application\view\layout.html";i:1555899834;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><?php echo config('site.name'); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="<?php echo RES; ?>/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="<?php echo RES; ?>/style/admin.css" media="all">
+<script src="<?php echo RES; ?>/layui/layui.js"></script>
+</head>
+<body>
+<div class="layui-fluid">
+   <div class="layui-card">
     <div class="layui-form layui-card-header layuiadmin-card-header-auto">
         <div class="layui-form-item">
             <div class="layui-inline">
@@ -12,13 +27,13 @@
                 <div class="layui-input-inline">
                     <select name="path" id="path">
                         <option value="0">全部</option>
-                        {volist name="cate" id="vo"}
-                        <option value='{$vo['path']}'>{php}
+                        <?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <option value='<?php echo $vo['path']; ?>'><?php 
                             for($i=0; $i<$vo['count']*2; $i++){
                                echo '&nbsp;&nbsp;';            
                             }
-                        {/php}{$vo['name']}</option>
-                        {/volist}
+                         ?><?php echo $vo['name']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>               
                 </div>
             </div>
@@ -47,7 +62,7 @@
             <button class="layui-btn layuiadmin-btn-list" data-type="batchdel">删除</button>
             <button class="layui-btn layuiadmin-btn-list" data-type="add">添加</button>
         </div>
-        <table id="LAY-app-content-list" class="LAY-common-table" lay-method="post" lay-url="{:url('article/index')}" lay-filter="LAY-app-content-list"></table>
+        <table id="LAY-app-content-list" class="LAY-common-table" lay-method="post" lay-url="<?php echo url('article/index'); ?>" lay-filter="LAY-app-content-list"></table>
         <div class="fsDatagridCols">
             <p checkbox="true"/>    
             <p field="title" title="标题" width="40%"/>       
@@ -77,7 +92,7 @@
 </div>
 <script>
 layui.config({
-    base: '{:RES}/' //静态资源所在路径
+    base: '<?php echo RES; ?>/' //静态资源所在路径
 }).extend({
     index: 'lib/index' //主入口模块
 }).use(['index', 'contlist', 'table'], function() {
@@ -141,3 +156,6 @@ layui.config({
 
 });
 </script>
+</div>
+</body>
+</html>

@@ -4,7 +4,6 @@
  @Site：http://www.layui.com/admin/
  @License: LPPL
 */
-
 layui.define('form', function(exports) {
     var $ = layui.$,
         layer = layui.layer,
@@ -37,19 +36,8 @@ layui.define('form', function(exports) {
         ]
     });
 
-
-    //发送短信验证码
-    admin.sendAuthCode({
-        elem: '#LAY-user-getsmscode',
-        elemPhone: '#LAY-user-login-cellphone',
-        elemVercode: '#LAY-user-login-vercode',
-        ajax: {
-            url: layui.setter.base + 'json/user/sms.js' //实际使用请改成服务端真实接口
-        }
-    });
-
     //更换图形验证码
-    $body.on('click', '#LAY-user-get-vercode', function() {
+    $body.on('click', '#LAY-get-vercode', function() {
         var othis = $(this);
         this.src = othis.attr('url')+'?t=' + new Date().getTime()
     });

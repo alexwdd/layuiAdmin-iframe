@@ -1,12 +1,9 @@
 /**
-
  @Name：layuiAdmin iframe版核心模块
  @Author：贤心
  @Site：http://www.layui.com/admin/
  @License：LPPL
-    
  */
-
 layui.define('view', function(exports) {
     var $ = layui.jquery,
         laytpl = layui.laytpl,
@@ -34,10 +31,9 @@ layui.define('view', function(exports) {
         ICON_SHRINK = 'layui-icon-shrink-right',
         ICON_SPREAD = 'layui-icon-spread-left',
         SIDE_SHRINK = 'layadmin-side-shrink',
-        SIDE_MENU = 'LAY-system-side-menu'
+        SIDE_MENU = 'LAY-system-side-menu',
 
         //通用方法
-        ,
         admin = {
             v: '1.2.1 std',
 

@@ -15,7 +15,6 @@ class Article extends Admin {
 					$result['data']['list'][$key]['cate'] = $cateArr[$value['cid']];
 				}                
             }
-            sleep(10);
 			echo $this->return_json($result);
     	}else{
     		$cate = model("Category")->getCate($this->modelID);

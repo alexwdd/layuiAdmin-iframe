@@ -44,7 +44,7 @@ class Article extends Admin {
 	}
 
 	#添加
-	public function add() {
+	public function pub() {
 		if(request()->isPost()){
 	        $data = input('post.');
 	        return model('Article')->saveData( $data );
@@ -55,34 +55,18 @@ class Article extends Admin {
 				$cate[$key]['count'] = $count;
 			}
 			$this->assign('cate', $cate);
-			$this->assign('date', date("Y-m-d"));
-			return view();
-		}
-	}
 
-	#编辑
-	public function edit() {
-		if(request()->isPost()){
-	        $data = input('post.');
-	        return model('Article')->saveData( $data );
-		}else{
 			$id = input('get.id');
-			if ($id=='' || !is_numeric($id)) {
-				$this->error('参数错误');
-			}
-			$list = model('Article')->find($id);
-			if (!$list) {
-				$this->error('信息不存在');
-			} else {
-				$this->assign('list', $list);
-				$cate = model("Category")->getCate($this->modelID);
-				foreach ($cate as $key => $value) {
-					$count = count(explode('-', $value['path'])) - 3;
-					$cate[$key]['count'] = $count;
+			if ($id!='' || is_numeric($id)) {
+				$list = model('Article')->find($id);
+				if (!$list) {
+					$this->error('信息不存在');
 				}
-				$this->assign('cate', $cate);
-				return view();
+			}else{
+				$list['createTime'] = date("Y-m-d",time());
 			}
+			$this->assign('list', $list);
+			return view();
 		}
 	}
 

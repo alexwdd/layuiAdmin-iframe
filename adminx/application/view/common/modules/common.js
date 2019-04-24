@@ -7,18 +7,18 @@
     
  */
 
-layui.define(['form','table'],function(exports) {
+layui.define(['form','table','laydate'],function(exports) {
     var $ = layui.$,
         layer = layui.layer,
+        laydate = layui.laydate,
         laytpl = layui.laytpl,
         setter = layui.setter,
         view = layui.view,
         form = layui.form,
         table = layui.table,
-        admin = layui.admin
+        admin = layui.admin;
 
     //公共业务的逻辑处理可以写在此处，切换任何页面都会执行
-
     $.extend({
         //非空判断
         isEmpty: function(value) {
@@ -29,10 +29,24 @@ layui.define(['form','table'],function(exports) {
         }
     });
 
+    //日期控件
+    laydate.render({
+        elem: '.lay-date' //指定元素
+    });
+
+    //渲染普通select    
+    $("select").each(function(){
+        if($(this).attr("default")){
+            $(this).val($(this).attr("default"));                   
+        }
+    })
+    form.render();
+
     //表单提交
-    form.on('submit(LAY-common-submit)', function(obj) {
+    form.on('submit(lay-common-submit)', function(obj) {
+        var iframe = $(obj.elem).attr('iframe');
         admin.req({
-            url: $(obj.elem).attr('url'),
+            url: $(obj.elem).attr('url'),            
             data: obj.field,
             method:'post',
             done: function(res) {
@@ -42,18 +56,23 @@ layui.define(['form','table'],function(exports) {
                     icon: 1,
                     time: 1000
                 }, function() {
-                    if(res.url!='' && res.url!=undefined){
-                        if (res.url=='reload') {
-                            window.location.reload();
-                        }else{
-                            window.location.href = res.url;
-                        }                                   
-                    }
+                    if (iframe==1){
+                        var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引  
+                        parent.layer.close(index);
+                    }else{
+                        if(res.url!='' && res.url!=undefined){
+                            if (res.url=='reload') {
+                                window.location.reload();
+                            }else{
+                                window.location.href = res.url;
+                            }                                   
+                        }
+                    }                    
                 });
             }
         });        
-        if($("#LAY-get-vercode").length>0){
-            $("#LAY-get-vercode").click();
+        if($("#lay-get-vercode").length>0){
+            $("#lay-get-vercode").click();
         }
     });
 
@@ -176,11 +195,11 @@ layui.define(['form','table'],function(exports) {
     };
 
     //通用数据表格加载
-    $(".LAY-common-table").each(function(index, obj) {
+    $(".lay-common-table").each(function(index, obj) {
         var cols = getDatagridCols(obj);
         //文章管理
         table.render({
-            elem: '#LAY-app-content-list',
+            elem: '#lay-common-table',
             url: $(obj).attr("lay-url"),
             method: $(obj).attr("lay-method"),
             cols: cols.colsArr,
@@ -188,6 +207,38 @@ layui.define(['form','table'],function(exports) {
             limit: 15,
             limits: [10, 15, 20, 25, 30]
         });
+    });
+
+    //表格工具条监听
+    table.on('tool(lay-common-table)', function(obj) {
+        var data = obj.data;
+        var _this = $(this);
+        if(obj.event === 'edit') {
+            var tableId = _this.attr('data-tableId');
+            var url = _this.attr('url'); 
+            var refresh = 1;         
+            top.layer.open({
+                type: 2,
+                title: $(this).attr('topTitle'),
+                content: url,
+                maxmin: true,
+                area: [$(this).attr('topWidth'), $(this).attr('topHeight')],
+                btn: ['确定'],
+                yes: function(index, layero) {
+                    //点击确认触发 iframe 内容中的按钮提交
+                    var submit = layero.find('iframe').contents().find("#lay-common-submit");
+                    submit.click();
+                },
+                cancel:function(){
+                    refresh = 0;
+                },
+                end:function(){
+                    if(tableId!='' && tableId!=undefined && refresh==1) {
+                        table.reload(tableId);
+                    }
+                }
+            });
+        }
     });
 
     //监听搜索
@@ -241,18 +292,27 @@ layui.define(['form','table'],function(exports) {
         },
         add: function() {
             var tableId = $(this).attr('data-tableId');
-            var url = $(this).attr('url');
-            layer.open({
+            var url = $(this).attr('url'); 
+            var refresh = 1;         
+            top.layer.open({
                 type: 2,
                 title: $(this).attr('topTitle'),
                 content: url,
                 maxmin: true,
                 area: [$(this).attr('topWidth'), $(this).attr('topHeight')],
-                btn: ['确定', '取消'],
+                btn: ['确定'],
                 yes: function(index, layero) {
                     //点击确认触发 iframe 内容中的按钮提交
-                    var submit = layero.find('iframe').contents().find("#layuiadmin-app-form-submit");
+                    var submit = layero.find('iframe').contents().find("#lay-common-submit");
                     submit.click();
+                },
+                cancel:function(){
+                    refresh = 0;
+                },
+                end:function(){
+                    if(tableId!='' && tableId!=undefined && refresh==1) {
+                        table.reload(tableId);
+                    }
                 }
             });
         },

@@ -2,4 +2,6 @@ _core
 _ueditor
 uploads
 html
-adminx/runtime
+adminx/runtime/cache
+adminx/runtime/log
+adminx/runtime/temp

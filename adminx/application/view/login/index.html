@@ -18,7 +18,7 @@
             <h2>{:config('site.name')}</h2>
         </div>
 
-        <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+        <form class="layadmin-user-login-box layadmin-user-login-body layui-form">
             <div class="layui-form-item">
                 <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
                 <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" class="layui-input">
@@ -43,7 +43,7 @@
             <div class="layui-form-item">
                 <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-common-submit" url="{:url('Login/doLogin')}">登 入</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 <script src="{:RES}/layui/layui.js"></script>

@@ -504,6 +504,11 @@ html{background-color: #f2f2f2; color: #666;}
 .layadmin-tips .layui-text .layui-anim{display: inline-block;}
 
 
+/* 自定义部分 */
+.layui-layer-btn{border-top: 1px #f1f1f1 solid}
+.thumb{width: 120px; background: #f1f1f1}
+
+
 /*
 
   响应式补充

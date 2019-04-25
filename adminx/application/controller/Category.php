@@ -13,6 +13,10 @@ class Category extends Admin {
 			if(empty($mid)){
 				$mid=1;
 			}
+			$map['model'] = $mid;
+			$list = db("Category")->where($map)->select();
+
+			$this->assign('list', $list);
 			$this->assign('mid', $mid);
 	    	return view();
     	}

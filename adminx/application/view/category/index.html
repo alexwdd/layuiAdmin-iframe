@@ -1,32 +1,50 @@
 <div class="layui-card">
-    <div class="layui-form layui-card-header layuiadmin-card-header-auto">
-    	<div class="layui-col-md12">
-	    	<?php $model=config("TABLE_MODEL"); ?>
-			{volist name="model" id="vo"}
-			{eq name="vo.show" value="1"}
-			<a href="{:url('Category/index',array('mid'=>$vo['id']))}" class="layui-btn layui-btn-sm <?php if($mid!=$vo['id']){echo 'layui-btn-primary';} ?>">{$vo['name']}</a>
-			{/eq}
-			{/volist}
-
-			<button class="layui-btn layui-btn-sm layui-btn-normal" function="top" topUrl="{:url('Category/add',array('mid'=>$mid))}" topWidth="80%" isMaximize="0" topHeight="80%" topTitle="添加根栏目">
-			  <i class="layui-icon">&#xe654;</i>添加根栏目
-			</button>
-	    </div>
-    </div>
-
     <div class="layui-card-body">
-        <table id="LAY-app-content-list" lay-filter="LAY-app-content-list"></table>
-        <script type="text/html" id="buttonTpl">
-            {{#  if(d.status){ }}
-	        <button class="layui-btn layui-btn-xs">已发布</button>
-	        {{#  } else { }}
-	        <button class="layui-btn layui-btn-primary layui-btn-xs">待修改</button>
-	        {{#  } }}
-        </script>
-        <script type="text/html" id="table-content-list">
-            <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
-          <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
-        </script>
+        <div style="padding-bottom: 10px;">
+            <?php $model=config("TABLE_MODEL"); ?>
+            {volist name="model" id="vo"}
+            {eq name="vo.show" value="1"}
+            <a href="{:url('Category/index',array('mid'=>$vo['id']))}" class="layui-btn layui-btn-sm <?php if($mid!=$vo['id']){echo 'layui-btn-primary';} ?>">{$vo['name']}</a>
+            {/eq}
+            {/volist}
+            
+            <button style="float: right;" class="layui-btn layui-btn-sm layui-btn-normal" function="top" topUrl="{:url('Category/add',array('mid'=>$mid))}" topWidth="80%" isMaximize="0" topHeight="80%" topTitle="添加根栏目">添加根栏目</button>           
+        </div>
+
+        <table class="layui-table">
+            <colgroup>
+                <col width="100">
+                <col>
+                <col width="100">
+                <col width="100">                
+                <col width="100">            
+            </colgroup>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>链接</th>
+                <th>排序</th>
+                <th>操作</th>
+            </tr> 
+            </thead>
+            <tbody>
+                {volist name='list' id="vo"}
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.url}</td>
+                    <td>{$vo.sort}</td>
+                    <td class="layui-form"><select lay-filter="cate-action" data-id="{$vo.id}">
+                        <option value="">操作</option>
+                        <option value="add">添加子栏目</option>
+                        <option value="edit">编辑</option>
+                        <option value="del">删除</option>
+                    </select></td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
     </div>
 </div>
 <script>
@@ -34,53 +52,14 @@ layui.config({
     base: '{:RES}/' //静态资源所在路径
 }).extend({
     index: 'lib/index' //主入口模块
-}).use(['index', 'contlist', 'table'], function() {
-    var table = layui.table,
-        form = layui.form;
-    var $ = layui.$,
-        active = {
-            batchdel: function() {
-                var checkStatus = table.checkStatus('LAY-app-content-list'),
-                    checkData = checkStatus.data; //得到选中的数据
+}).use(['index','form'], function() {    
+    var $ = layui.$,form = layui.form;
+    form.on('select(cate-action)', function(obj) {
+        console.log($(obj.elem).attr("data-id"));
+        console.log(obj.value); 
 
-                if (checkData.length === 0) {
-                    return layer.msg('请选择数据');
-                }
-
-                layer.confirm('确定删除吗？', function(index) {
-
-                    //执行 Ajax 后重载
-                    /*
-                    admin.req({
-                      url: 'xxx'
-                      //,……
-                    });
-                    */
-                    table.reload('LAY-app-content-list');
-                    layer.msg('已删除');
-                });
-            },
-            add: function() {
-                layer.open({
-                    type: 2,
-                    title: '添加文章',
-                    content: 'listform.html',
-                    maxmin: true,
-                    area: ['550px', '550px'],
-                    btn: ['确定', '取消'],
-                    yes: function(index, layero) {
-                        //点击确认触发 iframe 内容中的按钮提交
-                        var submit = layero.find('iframe').contents().find("#layuiadmin-app-form-submit");
-                        submit.click();
-                    }
-                });
-            }
-        };
-
-    $('.layui-btn.layuiadmin-btn-list').on('click', function() {
-        var type = $(this).data('type');
-        active[type] ? active[type].call(this) : '';
-    });
-
-});
+        $(obj.elem).val("");
+        form.render();
+    })
+})
 </script>

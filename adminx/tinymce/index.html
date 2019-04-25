@@ -8,12 +8,51 @@
 <script src="tinymce.min.js"></script>
 <script>
 tinymce.init({
-	selector:'#container',
-	language:'zh_CN',
-	automatic_uploads: true,
-    images_upload_url: 'postAcceptor.php',
-    images_reuse_filename: true,
-});
+        selector: "#container",
+        height: 400,
+        language:'zh_CN',
+        plugins: [
+            "bold italic underline forecolor backcolor alignleft aligncenter alignright alignjustify styleselect fontsizeselect searchreplace link unlink image media fullscreen preview code"
+        ],
+        toolbar: "bold italic underline forecolor backcolor alignleft aligncenter alignright alignjustify styleselect fontsizeselect searchreplace link unlink image media fullscreen preview code",
+        /*toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",*/
+        menubar: false,
+        //toolbar_items_size: 'small',
+        style_formats: [
+            {
+                title: 'Bold text',
+                inline: 'b'
+            }, {
+                title: 'Red text',
+                inline: 'span',
+                styles: {
+                    color: '#ff0000'
+                }
+            }, {
+                title: 'Red header',
+                block: 'h1',
+                styles: {
+                    color: '#ff0000'
+                }
+            }, {
+                title: 'Example 1',
+                inline: 'span',
+                classes: 'example1'
+            }, {
+                title: 'Example 2',
+                inline: 'span',
+                classes: 'example2'
+            }, {
+                title: 'Table styles'
+            }, {
+                title: 'Table row 1',
+                selector: 'tr',
+                classes: 'tablerow1'
+            }
+        ]
+    });
 </script>
 <textarea id="container">Next, use our Get Started docs to setup Tiny!</textarea>
 </body>

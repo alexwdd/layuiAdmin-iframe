@@ -22,9 +22,9 @@ class Upload extends Admin{
 	    }
 
 		if (empty($dir)) {
-			$path = '.'.config('UPLOAD_PATH');
+			$path = '..'.config('UPLOAD_PATH');
 		}else{
-			$path = '.'.config('UPLOAD_PATH').$dir.'/';
+			$path = '..'.config('UPLOAD_PATH').$dir.'/';
 		}
 
 		if(!is_dir($path)){
@@ -41,6 +41,10 @@ class Upload extends Admin{
 			}else{
 				$fname = config('UPLOAD_PATH').$dir.'/'.$fname;
 			}
+
+			$image = \think\Image::open('..'.$fname);
+			// 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.png
+			$image->thumb(800, 1200)->save('..'.$fname);
 			
 			$result = array(
 				'url' => $fname,   //保存后的文件路径
@@ -50,11 +54,9 @@ class Upload extends Admin{
 			);
 			return json_encode(array(
 	            'code'=>1,
-	            'results'=>array(
-	                'data'=>array(
-	                    'url'=>$fname
-	                    )
-	                )
+	            'data'=>array(
+	                'url'=>$fname
+	            )
 	        ));	
 		}else{
 			//是专门来获取上传的错误信息的

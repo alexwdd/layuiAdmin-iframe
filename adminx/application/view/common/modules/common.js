@@ -44,7 +44,7 @@ layui.define(['form','table','laydate'],function(exports) {
 
     //表单提交
     form.on('submit(lay-common-submit)', function(obj) {
-        var iframe = $(obj.elem).attr('iframe');
+        var iframe = $(obj.elem).attr('iframe');        
         admin.req({
             url: $(obj.elem).attr('url'),            
             data: obj.field,
@@ -74,6 +74,7 @@ layui.define(['form','table','laydate'],function(exports) {
         if($("#lay-get-vercode").length>0){
             $("#lay-get-vercode").click();
         }
+        return false;
     });
 
     //将模板解析为数据表格列
@@ -215,8 +216,8 @@ layui.define(['form','table','laydate'],function(exports) {
         var _this = $(this);
         if(obj.event === 'edit') {
             var tableId = _this.attr('data-tableId');
-            var url = _this.attr('url'); 
-            var refresh = 1;         
+            var url = _this.attr('url');            
+            var refresh = 1;
             top.layer.open({
                 type: 2,
                 title: $(this).attr('topTitle'),
@@ -259,9 +260,11 @@ layui.define(['form','table','laydate'],function(exports) {
     });
 
     var active = {
-        batchdel: function() {            
+        action: function() {            
             var tableId = $(this).attr('data-tableId');
             var url = $(this).attr('url');
+            var alert = $(this).attr('alert');
+            var alertMsg = $(this).attr('alertMsg');
             var checkStatus = table.checkStatus(tableId),
                 checkData = checkStatus.data; //得到选中的数据
             if (checkData.length === 0) {
@@ -271,15 +274,34 @@ layui.define(['form','table','laydate'],function(exports) {
             for (var i = 0; i < checkData.length; i++) {
                 ids.push(checkData[i].id);
             };
-            layer.confirm('确定删除吗？', function(index) {
-                //执行 Ajax 后重载
+
+            if(alert==1 && alertMsg!=''){
+                top.layer.confirm(alertMsg, function(index) {
+                    //执行 Ajax 后重载
+                    admin.req({
+                        url: url,
+                        data: {id:ids.join(",")},
+                        method:'post',
+                        done: function(res) {
+                            //登入成功的提示与跳转
+                            top.layer.msg(res.msg, {
+                                offset: '15px',
+                                icon: 1,
+                                time: 1000
+                            }, function() {
+                                table.reload(tableId);
+                            });
+                        }
+                    });
+                });
+            }else{
                 admin.req({
                     url: url,
                     data: {id:ids.join(",")},
                     method:'post',
                     done: function(res) {
                         //登入成功的提示与跳转
-                        layer.msg(res.msg, {
+                        top.layer.msg(res.msg, {
                             offset: '15px',
                             icon: 1,
                             time: 1000
@@ -288,12 +310,47 @@ layui.define(['form','table','laydate'],function(exports) {
                         });
                     }
                 });
+            }            
+        },
+        selectOpen: function() {            
+            var tableId = $(this).attr('data-tableId');
+            var url = $(this).attr('url');
+            var refresh = 1;
+            var checkStatus = table.checkStatus(tableId),
+                checkData = checkStatus.data; //得到选中的数据
+            if (checkData.length === 0) {
+                return layer.msg('请选择数据');
+            };
+            var ids = [];
+            for (var i = 0; i < checkData.length; i++) {
+                ids.push(checkData[i].id);
+            };
+            top.layer.open({
+                type: 2,
+                title: $(this).attr('topTitle'),
+                content: url+"?id="+ids.join("-"),
+                maxmin: true,
+                area: [$(this).attr('topWidth'), $(this).attr('topHeight')],
+                btn: ['确定'],
+                yes: function(index, layero) {
+                    //点击确认触发 iframe 内容中的按钮提交
+                    var submit = layero.find('iframe').contents().find("#lay-common-submit");
+                    submit.click();
+                },
+                cancel:function(){
+                    refresh = 0;
+                },
+                end:function(){
+                    if(tableId!='' && tableId!=undefined && refresh==1) {
+                        table.reload(tableId);
+                    }
+                }
             });
         },
         add: function() {
             var tableId = $(this).attr('data-tableId');
             var url = $(this).attr('url'); 
-            var refresh = 1;         
+            var refresh = 1;
             top.layer.open({
                 type: 2,
                 title: $(this).attr('topTitle'),
@@ -319,6 +376,13 @@ layui.define(['form','table','laydate'],function(exports) {
         refresh: function() {
             var tableId = $(this).attr('data-tableId');
             table.reload(tableId);
+        },
+        url: function() { 
+            var url = $(this).attr('url');
+            window.location.href = url;
+        },
+        back: function() { 
+            window.history.go(-1);
         },
     };
 

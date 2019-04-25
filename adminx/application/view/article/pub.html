@@ -44,8 +44,6 @@
         </div>
         <div class="layui-inline">
             <button type="button" class="layui-btn" id="upload-single">上传图片</button>
-
-            <button type="button"  class="layui-btn" function="upload" fileElem="#picname" srcElem="#picname_src" fileAccept="images" fileExts="jpg|png|gif|jpeg" fileSize="5120" inputs="type:test">上传图片</button>
             <input type="button" value="删除" class="layui-btn layui-btn-small" onclick="delImage('picname')"/>
         </div>
         <div class="layui-inline">
@@ -125,17 +123,28 @@
 </div>
 <script src="/adminx/tinymce/tinymce.min.js"></script>
 <script>
-
-</script>
-<script>
 layui.config({
     base: '{:RES}/' //静态资源所在路径
 }).extend({
     index: 'lib/index' //主入口模块
 }).use(['index','myupload','tinymce'], function() {    
-    var $ = layui.$;
-    $("html").css({"background":"#fff"});
+    var $ = layui.$,
+        myupload = layui.myupload;
 
+    $("html").css({"background":"#fff"});
     tinymce.init(layui.tinymce);
+
+    $("#lay-common-submit").click(function(){
+        $("#container").val(tinyMCE.activeEditor.getContent());
+    })
+
+    myupload.single({
+        elem : '#upload-single',
+        url : '{:url('upload/image')}',
+        ext:'jpg|png|gif|jpeg',
+        mime:'image/*',
+        size:5120,
+        tag : '#picname'
+    });    
 })
 </script>

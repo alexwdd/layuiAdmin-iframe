@@ -34,10 +34,13 @@ class Article extends Admin {
 			$result = model('Article')->getList(1);
 			$map['model']=$this->modelID;
 			$cateArr = db('Category')->where($map)->column('id,name');
-			foreach ($result['data']['list'] as $key => $value) {
-                $result['data']['list'][$key]['cate'] = $cateArr[$value['cid']];
-            }
-			echo $this->return_json($result);
+			foreach ($result['data'] as $key => $value) {
+				if (isset($cateArr[$value['cid']])) {
+					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
+				}                
+            }            
+            $result['code'] = 0;
+            echo json_encode($result);
     	}else{		
 	    	return view();
     	}
@@ -126,7 +129,6 @@ class Article extends Admin {
 				$where['id'] = $v;
 				$article->where($where)->setField('del','0');
 			}
-            $url = url('Article/trash');
             $this->success('操作成功');
 		}
 	}
@@ -153,7 +155,7 @@ class Article extends Admin {
 	            $this->success('操作成功');
 			}
 		}else{
-			$id=input('post.id');
+			$id=input('get.id');
 			$this->assign('id',$id);
 			unset($map);
 			$map['model']=$this->modelID;

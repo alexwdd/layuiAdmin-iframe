@@ -4,9 +4,7 @@ layui.define(function(exports){
         height: 400,
         language:'zh_CN',
         plugins: [
-            "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-            "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+            "advlist lists searchreplace link image media fullscreen preview code"
         ],
         toolbar: "bold italic underline forecolor backcolor alignleft aligncenter alignright alignjustify styleselect fontsizeselect searchreplace link unlink image media fullscreen preview code",
         /*toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",

@@ -107,26 +107,26 @@ class Article extends Admin
     }
 
     //获取列表
-    public function getList($type=0){
+    public function getList($del=0){
         
         $pageSize = input('post.limit',20);
         $field = input('post.field','id');
         $order = input('post.order','desc');
         $path = input('path');
         $keyword  = input('keyword');
-        $del  = input('del');
+        $status  = input('status');
 
         unset($map);
-        if($path!=''){
+        if($path!='' && $path!=0){
             $map['path'] = array('like', $path.'%');
         }
         if($keyword!=''){
             $map['title'] = array('like', '%'.$keyword.'%');
         }
-        if($del!=''){
-            $map['status'] = $del;
+        if($status!=''){
+            $map['status'] = $status;
         }
-        $map['del']=$type;
+        $map['del']=$del;
 
         $total = $this->where($map)->count();
         $pages = ceil($total/$pageSize);

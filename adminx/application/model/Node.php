@@ -17,14 +17,11 @@ class Node extends Admin
         return $this->where($request['map'])->limit($request['offset'], $request['limit'])->select();
     }
 
-    public function getStatusAttr($value)
-    {
-        // $status = self::getAllStatus();
-        // return $status[$value];
-    }
-
     public function saveData($data)
     {
+        if ($data['value']=='' && $data['level']>1) {
+            return info('请输入值',0);
+        }
         if( isset( $data['id']) && !empty($data['id'])) {
             $result = $this->edit( $data );
         } else {
@@ -40,7 +37,7 @@ class Node extends Admin
             return info($validate->getError());
         }
         $father = $this->get($data['pid']);
-        if ($father) {
+        if ($father['value']) {
             $data['value'] = $father['value'].'/'.$data['value'];
         }
         $this->allowField(true)->save($data);

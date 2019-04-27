@@ -15,7 +15,6 @@ class Article extends Admin {
 					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
 				}                
             }            
-            $result['code'] = 0;
             echo json_encode($result);
     	}else{
     		$cate = model("Category")->getCate($this->modelID);
@@ -24,24 +23,6 @@ class Article extends Admin {
 				$cate[$key]['count'] = $count;
 			}
 			$this->assign('cate', $cate);			
-	    	return view();
-    	}
-	}
-
-	#回收站
-	public function trash() {
-		if (request()->isPost()) {
-			$result = model('Article')->getList(1);
-			$map['model']=$this->modelID;
-			$cateArr = db('Category')->where($map)->column('id,name');
-			foreach ($result['data'] as $key => $value) {
-				if (isset($cateArr[$value['cid']])) {
-					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
-				}                
-            }            
-            $result['code'] = 0;
-            echo json_encode($result);
-    	}else{		
 	    	return view();
     	}
 	}
@@ -71,6 +52,24 @@ class Article extends Admin {
 			$this->assign('list', $list);
 			return view();
 		}
+	}
+
+	#回收站
+	public function trash() {
+		if (request()->isPost()) {
+			$result = model('Article')->getList(1);
+			$map['model']=$this->modelID;
+			$cateArr = db('Category')->where($map)->column('id,name');
+			foreach ($result['data'] as $key => $value) {
+				if (isset($cateArr[$value['cid']])) {
+					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
+				}                
+            }            
+            $result['code'] = 0;
+            echo json_encode($result);
+    	}else{		
+	    	return view();
+    	}
 	}
 
 	public function status(){

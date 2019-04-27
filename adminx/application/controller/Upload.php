@@ -44,7 +44,7 @@ class Upload extends Admin{
 
 			$image = \think\Image::open('..'.$fname);
 			// 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.png
-			$image->thumb(800, 1200)->save('..'.$fname);
+			$image->thumb(config('IMAGE_MAX_WIDTH'), config('IMAGE_MAX_HEIGHT'))->save('..'.$fname);
 			
 			$result = array(
 				'url' => $fname,   //保存后的文件路径

@@ -64,7 +64,7 @@ class Admin extends Base {
 
 	public function return_json($results){
         return json_encode(array(
-                'code'=>1,
+                'code'=>0,
                 'results'=>$results
             ));
     }

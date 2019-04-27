@@ -22,21 +22,6 @@ class Category extends Admin
         return $list;        
     }
 
-    public function getList($mid){
-        $map['model']=$mid;
-        $list = $this->where($map)->field("id,name,picname,fid,path,sort")->order('path,id asc')->select();
-        foreach ($list as $key => $value) {
-            $count = count(explode('-', $value['path'])) - 2;
-            if ($value['fid'] > 0) {
-                $list[$key]['style'] = 'style="padding-left:' . (($count * 10) + 10) . 'px;"';
-            }
-        }
-        $result = array(
-            'data'=>$list
-        );
-        return $result;        
-    }
-
     public function saveData( $data )
     {
         if( isset( $data['id']) && !empty($data['id'])) {
@@ -71,6 +56,8 @@ class Category extends Admin
         }    
         $this->allowField(true)->save($data,['id'=>$data['id']]);
         if($this->id > 0){
+            $path = $this->path.$this->id.'-'; 
+            $this->where('id', $this->id)->update(['path' => $path]);
             return info('操作成功',1);
         }else{
             return info('操作失败',0);

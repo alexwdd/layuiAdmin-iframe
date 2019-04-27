@@ -138,6 +138,7 @@ class Article extends Admin
         }
 
         $result = array(
+            'code'=>0,
             'data'=>$list,
             "pageNum"=>$pageNum,
             "pageSize"=>$pageSize,

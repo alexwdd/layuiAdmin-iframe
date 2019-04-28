@@ -24,9 +24,12 @@ class Category extends Admin {
 	public function pub(){
 		if(request()->isPost()){
 			$data = input('post.');
-			if ($data['id'] == $data['fid']) {
-				$this->error("不能以自身为上级分类");
+			if($data['id']!=''){
+				if ($data['id'] == $data['fid']) {
+					$this->error("不能以自身为上级分类");
+				}
 			}
+			
 			if ($data['fid']>0) {
 				$father = db("Category")->where('id',$data['fid'])->find();
 				if (!$father) {

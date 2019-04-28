@@ -1,8 +1,8 @@
 <?php
 namespace app\model;
 
-class Onepage extends Admin
-{
+class Onepage extends Admin{
+    
     protected $auto = ['updateTime'];
     protected $insert = ['createTime'];
 
@@ -40,13 +40,12 @@ class Onepage extends Admin
 
         $list = $this->order($field.' '.$order)->limit($firstRow.','.$pageSize)->select();
         $result = array(
-            'data'=>array(
-                'list'=>$list,
-                "pageNum"=>$pageNum,
-                "pageSize"=>$pageSize,
-                "pages"=>$pageSize,
-                "total"=>$total
-            )
+            'code'=>0,
+            'data'=>$list,
+            "pageNum"=>$pageNum,
+            "pageSize"=>$pageSize,
+            "pages"=>$pageSize,
+            "count"=>$total
         );
         return $result;        
     }

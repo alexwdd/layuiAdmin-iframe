@@ -66,7 +66,7 @@ class Node extends Admin
     //是否需要检查节点，如果不存在权限节点数据，则不需要检查
     public function isCheck($user, $rule_val )
     {
-        $rule_val = strtolower($rule_val);
+        $rule_val = strtolower($rule_val);        
         $access = $this->getAccessList($user['group']);
         if(in_array($rule_val, $access)){
             return true;
@@ -76,18 +76,20 @@ class Node extends Admin
 
     //获取当前用户组可以访问的url
     public function getAccessList($roleID){
+        
         if (cache('access')) {
             return cache('access');
         }else{
             $map['role_id'] = $roleID;
+            $map['level'] = 3;
             $nodeid = db('Access')->where($map)->column('node_id'); 
             unset($map);
             $map['id'] = array('in',$nodeid);
-            $node = db('Node')->where($map)->column("value"); 
+            $node = db('Node')->where($map)->column("value");             
             $result = array_merge(config('rbac.NOT_AUTH_ACTION'),$node);
             if (config('rbac.USER_AUTH_TYPE')==1) {
                 cache('access',$result);
-            }
+            }            
             return $result;
         }        
     }

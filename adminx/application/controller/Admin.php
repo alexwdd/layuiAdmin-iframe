@@ -20,7 +20,7 @@ class Admin extends Base {
         $user = Session::get('userinfo', 'admin');
         $this->admin = $user;        
         $request = Request::instance();
-        $action_url = $request->module().'/'.$request->controller().'/'.$request->action();
+        $action_url = $request->controller().'/'.$request->action();        
         if($user['administrator']!=1 && !$this->checkRule($user, $action_url)) {
 			$this->error('您没有访问权限');
 		}

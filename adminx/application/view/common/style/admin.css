@@ -512,6 +512,10 @@ html{background-color: #f2f2f2; color: #666;}
 .node-select .bd li{cursor: pointer; line-height: 30px;}
 .node-select .bd li.active{background-color: #f1f1f1}
 .node-select .fd{border-top: 1px #dbdbdb solid; padding-top: 10px}
+dl.action{clear: both; overflow: hidden; padding: 0; margin:10px;border: 1px #dbdbdb solid;background-color: #f1f1f1;}
+dl.action dt{ float: left; width: 140px; padding: 10px;}
+dl.action dd{ margin-left: 141px; border-left: 1px #dbdbdb solid; overflow: hidden;background-color: #fff;}
+dl.action dd li{padding: 10px; float: left;}
 
 /*
 

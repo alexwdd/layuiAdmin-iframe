@@ -12,7 +12,12 @@ class Upload extends Admin{
  		$water = input('get.water',1);
  		$thumb = input('get.thumb',1);
  		$resault = $this->_saveimage("images",$water,$thumb);
- 		echo json_encode($resault);
+ 		if (input('get.from')=='editor') {
+ 			$data = ['location'=>$resault['data']['url']];
+ 			echo json_encode($data);
+ 		}else{
+ 			echo json_encode($resault);
+ 		} 		
  	}
 
 	#保存图片
@@ -52,12 +57,12 @@ class Upload extends Admin{
 		        'original' => $info->getInfo()['name'],   //原始文件名
 		        'state'    => 'SUCCESS'  //上传状态，成功时返回SUCCESS,其他任何值将原样返回至图片上传框中
 			);
-			return json_encode(array(
+			return array(
 	            'code'=>1,
 	            'data'=>array(
 	                'url'=>$fname
 	            )
-	        ));	
+	        );	
 		}else{
 			//是专门来获取上传的错误信息的
 			return array('code'=>0,'msg'=>$file->getError());

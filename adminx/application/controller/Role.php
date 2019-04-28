@@ -6,33 +6,27 @@ class Role extends Admin{
     public function index(){ 
         if (request()->isPost()) {
             $result = model('Role')->getList();
-            echo $this->return_json($result);
+            echo json_encode($result);
         }else{
             return view();
         }       
     }
 
-    #添加
-    public function add(){
-        if (request()->isPost()) {
-            $data = input('post.');
-            return model('Role')->saveData( $data );
-        }else{
-            return view();
-        }
-    }
-
     #编辑
-    public function edit(){
+    public function pub(){
         if (request()->isPost()) {
             $data = input('post.');
             return model('Role')->saveData( $data );            
         }else{
-            $id = (int) input('get.id');
-            if (!isset ($id)) {
-                $this->error('参数错误');
+            $id = input('get.id');
+            if ($id!='' || is_numeric($id)) {
+                $list = model('Role')->find($id);
+                if (!$list) {
+                    $this->error('信息不存在');
+                }
+            }else{
+                $list['status'] = 1;
             }
-            $list = model('Role')->find($id);
             $this->assign('list', $list);
             return view();
         }

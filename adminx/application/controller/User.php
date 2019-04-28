@@ -5,34 +5,37 @@ class User extends Admin{
     #列表
     public function index(){ 
         if (request()->isPost()) {
+            $cateArr = db('Role')->where($map)->column('id,name');
             $result = model('User')->getList();
-            echo $this->return_json($result);
+            foreach ($result['data'] as $key => $value) {
+                if (isset($cateArr[$value['group']])) {
+                    $result['data'][$key]['groupName'] = $cateArr[$value['group']];
+                }                
+            }
+            echo json_encode($result);
         }else{
             return view();
         }       
     }
 
-    #添加
-    public function add(){
-        if (request()->isPost()) {
-            $data = input('post.');
-            return model('User')->saveData( $data );
-        }else{
-            return view();
-        }
-    }
-
     #编辑
-    public function edit(){
+    public function pub(){
         if (request()->isPost()) {
             $data = input('post.');
             return model('User')->saveData( $data );            
         }else{
-            $id = (int) input('get.id');
-            if (!isset ($id)) {
-                $this->error('参数错误');
+            $group = db('Role')->field('id,name')->select();
+            $this->assign('group', $group);
+
+            $id = input('get.id');
+            if ($id!='' || is_numeric($id)) {
+                $list = model('User')->find($id);
+                if (!$list) {
+                    $this->error('信息不存在');
+                }
+            }else{
+                $list['status'] = 1;
             }
-            $list = model('User')->find($id);
             $this->assign('list', $list);
             return view();
         }
@@ -57,10 +60,10 @@ class User extends Admin{
         if (request()->isPost()){
             $uid = input('uid');
             $result = model('UserLog')->getList($uid);
-            echo $this->return_json($result);
+            echo json_encode($result);
         }else{
-            $uid = input('get.id');
-            $this->assign('uid',$uid);
+            $user = db('User')->field('id,name')->select();
+            $this->assign('user',$user);
             return view();
         }
     }

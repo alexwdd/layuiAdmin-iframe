@@ -29,6 +29,97 @@ layui.define(['form','table','laydate'],function(exports) {
         }
     });
 
+    //自定义表单验证
+    form.verify({
+        /**
+         * 对比两个值相等
+         */
+        "equals": function(value, item){ //value：表单的值、item：表单的DOM对象
+        var equalsId = $(item).attr("equalsId");
+        if($.isEmpty(equalsId)){
+        return '未配置对比id';
+        }
+        var value2 = $("#"+equalsId).val();
+
+        if(value!==value2)
+        {
+        var equalsMsg = $(item).attr("equalsMsg");
+        if($.isEmpty(equalsMsg))
+        {
+            equalsMsg = "值不相等";
+        }
+        return equalsMsg;
+        }
+        },
+        /**
+         * 用户名验证
+         */
+        "username": [
+            /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){2,19}$/,
+            '用户名格式不正确!'
+        ],
+        /**
+         * 最小、最大长度判断
+         */
+        "length": function(value, item){ //value：表单的值、item：表单的DOM对象
+        var minLength = $(item).attr("minLength");//最小长度
+        var maxLength = $(item).attr("maxLength");//最大长度
+        if(!$.isEmpty(minLength) && '0' !== minLength && parseInt(minLength)>value.length){
+            return "输入内容小于最小值:"+minLength;
+        }
+        if(!$.isEmpty(maxLength) && '0' !== maxLength && value.length>parseInt(maxLength)){
+            return "输入内容大于最小值:"+maxLength;
+        }
+        },
+
+        _mobile: function(value) {
+            if(value !='') {
+                if (!checkMobile(value)) {
+                    return '请输入正确的手机号码';
+                }
+            }
+        },
+        __mobile: function(value) {
+            if (!checkMobile(value)) {
+                return '请输入正确的手机号码';
+            }
+        },
+        _url: function(value) {
+            if(value !='') {
+                if (!checkUrl(value)) {
+                    return '请输入正确URL格式';
+                }
+            }
+        },
+        __url: function(value) {
+            if (!checkUrl(value)) {
+                return '请输入正确URL格式';
+            }
+        },
+        __username: function(value) {
+            if (!checkWordLong(value,2,8)) {
+                return '请输入用户名2-8个字符';
+            }
+        },
+        _password: function(value) {
+            if(value !='') {
+                if (!checkWordLong(value,6,12)) {
+                    return '请输入密码6-12个字符';
+                }
+            }
+        },
+        __password: function(value) {
+            if (!checkWordLong(value,6,12)) {
+                return '请输入密码6-12个字符';
+            }
+        },
+        __repassword: function(value) {
+            if (!checkRepassword(value)) {
+                return '两次密码不同';
+            }
+        }
+    });
+
     //日期控件
     laydate.render({
         elem: '.lay-date' //指定元素
@@ -43,7 +134,7 @@ layui.define(['form','table','laydate'],function(exports) {
     form.render();
 
     //表单提交
-    form.on('submit(lay-common-submit)', function(obj) {
+    form.on('submit(lay-common-submit)', function(obj) { 
         var iframe = $(obj.elem).attr('iframe');        
         admin.req({
             url: $(obj.elem).attr('url'),            
@@ -70,7 +161,8 @@ layui.define(['form','table','laydate'],function(exports) {
                     }                    
                 });
             }
-        });        
+        });
+
         if($("#lay-get-vercode").length>0){
             $("#lay-get-vercode").click();
         }

@@ -5,7 +5,7 @@ class Index extends Admin {
 
     public function index(){
         $menu = $this->getMenu();
-        $this->assign('menu',$menu);
+        $this->assign('menu',$menu);        
     	return view();
     }
 
@@ -28,6 +28,10 @@ class Index extends Admin {
     }
 
     public function getMenu(){
+        if ($this->admin['administrator']!=1){
+            $nodeArr = db('Access')->where(array('role_id'=>$this->admin['group']))->column('node_id');
+            $map['id'] = array('in',$nodeArr);
+        }
         $obj = db('Node');
         $map['display'] = 1;
         $list = $obj->where($map)->order('sort asc , id asc')->select();
@@ -53,9 +57,9 @@ class Index extends Admin {
     public function getTree($obj,$data='0'){
         $arr = array();
         foreach ($obj as $key=>$value){
-            if($value['pid']==$data){               
-                $obj[$key]['childrens'] = $this->getTree($obj,$obj[$key]['id']);
-                 if(count($obj[$key]['childrens'])==0){
+            if($value['pid']==$data){
+                $obj[$key]['childrens'] = $this->getTree($obj,$obj[$key]['id']);                
+                if(count($obj[$key]['childrens'])==0){
                     $obj[$key]['childrens']=array();
                     $obj[$key]['leaf']=0;
                 }else{
@@ -65,46 +69,7 @@ class Index extends Admin {
             }
         }
         return $arr;
-    }
-
-    public function getMenu1(){
-        if ($this->admin['administrator']==1) {
-            //超级管理员菜单
-            $menu = $leftMenu;
-            foreach ($menu as $key => $value) {
-                $child = db('Node')->field('id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,level,value')->where(array('status'=>1,'display'=>1,'level'=>2,'data'=>$value['menuName']))->order('sort asc, id asc')->select();
-                foreach ($child as $j => $val) {
-                    $val['menuHref'] = url($val['value'].'/index');
-                    $val['parentMenuId'] = $value['menuId'];
-                    $val['menuIcon']='';
-                    array_push($menu,$val);
-                }
-            }
-        }else{
-            //普通用户组菜单
-            $nodeArr = db('Access')->where(array('role_id'=>$this->admin['group']))->column('node_id');
-            $menu = $leftMenu;
-            foreach ($menu as $key => $value) {
-                $map['id'] = array('in',$nodeArr);
-                $map['data'] = $value['menuName'];
-                $map['status'] = 1;
-                $map['display'] = 1;
-                $map['level'] = 2;
-                $child = db('Node')->field('id as menuId,name as menuName,icon as menuIcon,pid as parentMenuId,level,value')->where($map)->order('sort asc, id asc')->select();
-                if ($child) {
-                    foreach($child as $j => $val) {
-                        $val['menuHref'] = url($val['value'].'/index');
-                        $val['parentMenuId'] = $value['menuId'];
-                        $val['menuIcon']='';
-                        array_push($menu,$val);
-                    }
-                }elseif($value['parentMenuId']!=0){
-                    unset($menu[$key]);
-                }         
-            }
-        }
-        return $menu;
-    }
+    }    
 
     //清除缓存
     public function clearcache(){

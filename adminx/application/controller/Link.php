@@ -10,12 +10,12 @@ class Link extends Admin {
 			$result = model('Link')->getList();
 			$map['model']=$this->modelID;
 			$cateArr = db('Category')->where($map)->column('id,name');
-			foreach ($result['data']['list'] as $key => $value) {
+			foreach ($result['data'] as $key => $value) {
 				if (isset($cateArr[$value['cid']])) {
-					$result['data']['list'][$key]['cate'] = $cateArr[$value['cid']];
+					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
 				}                
             }
-			echo $this->return_json($result);
+			echo json_encode($result);
     	}else{
     		$cate = model("Category")->getCate($this->modelID);
 			foreach ($cate as $key => $value) {
@@ -28,7 +28,7 @@ class Link extends Admin {
 	}
 
 	#添加
-	public function add() {
+	public function pub() {
 		if(request()->isPost()){
 	        $data = input('post.');
 	        return model('Link')->saveData( $data );
@@ -39,33 +39,16 @@ class Link extends Admin {
 				$cate[$key]['count'] = $count;
 			}
 			$this->assign('cate', $cate);
-			return view();
-		}
-	}
 
-	#编辑
-	public function edit() {
-		if(request()->isPost()){
-	        $data = input('post.');
-	        return model('Link')->saveData( $data );
-		}else{
 			$id = input('get.id');
-			if ($id=='' || !is_numeric($id)) {
-				$this->error('参数错误');
-			}
-			$list = model('Link')->find($id);
-			if (!$list) {
-				$this->error('信息不存在');
-			} else {
-				$this->assign('list', $list);
-				$cate = model("Category")->getCate($this->modelID);
-				foreach ($cate as $key => $value) {
-					$count = count(explode('-', $value['path'])) - 3;
-					$cate[$key]['count'] = $count;
+			if ($id!='' || is_numeric($id)) {
+				$list = model('Link')->find($id);
+				if (!$list) {
+					$this->error('信息不存在');
 				}
-				$this->assign('cate', $cate);
-				return view();
 			}
+			$this->assign('list', $list);
+			return view();
 		}
 	}
 

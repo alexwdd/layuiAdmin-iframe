@@ -37,7 +37,7 @@ layui.define('form', function(exports) {
     });
 
     //更换图形验证码
-    $body.on('click', '#LAY-get-vercode', function() {
+    $body.on('click', '#lay-get-vercode', function() {
         var othis = $(this);
         this.src = othis.attr('url')+'?t=' + new Date().getTime()
     });

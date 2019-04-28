@@ -37,15 +37,14 @@ class UserLog extends Admin
             }
         }
         $result = array(
-            'data'=>array(
-                'list'=>$list,
-                "pageNum"=>$pageNum,
-                "pageSize"=>$pageSize,
-                "pages"=>$pageSize,
-                "total"=>$total
-            )
+            'code'=>0,
+            'data'=>$list,
+            "pageNum"=>$pageNum,
+            "pageSize"=>$pageSize,
+            "pages"=>$pageSize,
+            "count"=>$total
         );
-        return $result;
+        return $result; 
     }    
 
     public function del($userid){

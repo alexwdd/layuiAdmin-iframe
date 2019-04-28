@@ -283,6 +283,25 @@ layui.define('view', function(exports) {
             iframe[0].contentWindow.location.reload(true);
         },
 
+        //清除缓存
+        clear:function(othis){
+            layer.confirm('清除缓存吗?', {icon: 3, title:'提示'}, function(index){
+                //do something
+                admin.req({
+                    url: $(othis).attr("url"),            
+                    done: function(res) {
+                        //登入成功的提示与跳转
+                        layer.msg(res.msg, {
+                            offset: '15px',
+                            icon: 1,
+                            time: 1000
+                        });
+                    }
+                });
+                layer.close(index);
+            });
+        },
+
         //点击消息
         message: function(othis) {
             othis.find('.layui-badge-dot').remove();

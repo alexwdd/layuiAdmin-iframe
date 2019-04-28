@@ -14,7 +14,7 @@ class Article extends Admin {
 				if (isset($cateArr[$value['cid']])) {
 					$result['data'][$key]['cate'] = $cateArr[$value['cid']];
 				}                
-            }            
+            }
             echo json_encode($result);
     	}else{
     		$cate = model("Category")->getCate($this->modelID);
@@ -22,7 +22,7 @@ class Article extends Admin {
 				$count = count(explode('-', $value['path'])) - 3;
 				$cate[$key]['count'] = $count;
 			}
-			$this->assign('cate', $cate);			
+			$this->assign('cate', $cate);
 	    	return view();
     	}
 	}

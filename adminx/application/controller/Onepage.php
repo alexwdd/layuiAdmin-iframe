@@ -7,39 +7,27 @@ class Onepage extends Admin {
 	public function index() {
 		if (request()->isPost()) {
 			$result = model('Onepage')->getList();
-			echo $this->return_json($result);
+			echo json_encode($result);
     	}else{
 	    	return view();
     	}
 	}
 
-	#添加
-	public function add() {
-		if(request()->isPost()){
-	        $data = input('post.');
-	        return model('Onepage')->saveData( $data );
-		}else{
-			return view();
-		}
-	}
-
 	#编辑
-	public function edit() {
+	public function pub() {
 		if(request()->isPost()){
 	        $data = input('post.');
 	        return model('Onepage')->saveData( $data );
 		}else{
 			$id = input('get.id');
-			if ($id=='' || !is_numeric($id)) {
-				$this->error('参数错误');
+			if ($id!='' || is_numeric($id)) {
+				$list = model('Onepage')->find($id);
+				if (!$list) {
+					$this->error('信息不存在');
+				}
 			}
-			$list = model('Onepage')->find($id);
-			if (!$list) {
-				$this->error('信息不存在');
-			} else {
-				$this->assign('list', $list);
-				return view();
-			}
+			$this->assign('list', $list);
+			return view();
 		}
 	}
 

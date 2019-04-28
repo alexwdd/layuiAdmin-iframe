@@ -58,15 +58,14 @@ class User extends Model
             $list = collection($list)->toArray();
         }
         $result = array(
-            'data'=>array(
-                'list'=>$list,
-                "pageNum"=>$pageNum,
-                "pageSize"=>$pageSize,
-                "pages"=>$pageSize,
-                "total"=>$total
-            )
+            'code'=>0,
+            'data'=>$list,
+            "pageNum"=>$pageNum,
+            "pageSize"=>$pageSize,
+            "pages"=>$pageSize,
+            "count"=>$total
         );
-        return $result;
+        return $result;  
 	}
 
 	//获取单条

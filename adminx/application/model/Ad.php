@@ -47,10 +47,14 @@ class Ad extends Admin
         $field = input('post.field','id');
         $order = input('post.order','desc');
         $path = input('path');
+        $keyword = input('keyword');
 
         unset($map);
         if($path!=''){
             $map['path'] = array('like', $path.'%');
+        }
+        if($keyword!=''){
+            $map['name'] = array('like', '%'.$keyword.'%');
         }
         $map['id'] = array('gt',0);
         $pages = ceil($total/$pageSize);
@@ -61,15 +65,14 @@ class Ad extends Admin
             $list = collection($list)->toArray();
         }
         $result = array(
-            'data'=>array(
-                'list'=>$list,
-                "pageNum"=>$pageNum,
-                "pageSize"=>$pageSize,
-                "pages"=>$pageSize,
-                "total"=>$total
-            )
+            'code'=>0,
+            'data'=>$list,
+            "pageNum"=>$pageNum,
+            "pageSize"=>$pageSize,
+            "pages"=>$pageSize,
+            "count"=>$total
         );
-        return $result;        
+        return $result;      
     }
 
     //获取单条

@@ -3,7 +3,6 @@ layui.define(function(exports){
         selector: "#container",
         height: 400,
         language:'zh_CN',
-        imageupload_url: 'serverAddress/file/fileUpload',
         plugins: [
             "advlist lists searchreplace link image imagetools media fullscreen preview code"
         ],
@@ -17,6 +16,7 @@ layui.define(function(exports){
         image_title: false, // 是否开启图片标题设置的选择，这里设置否
         automatic_uploads: true, //开启点击图片上传时，自动进行远程上传操作
         images_upload_base_path: '', // 图片上传的基本路径
+        convert_urls:false,
         images_upload_url: '/manage/adminx/upload/image?from=editor', //图片上传的具体地址，该选项一定需要设置，才会出现图片上传选项
         images_reuse_filename: true,
 

@@ -331,6 +331,16 @@ layui.define(['form','table','laydate'],function(exports) {
                     }
                 }
             });
+        };
+        if(obj.event === 'view') {
+            var url = _this.attr('url');
+            top.layer.open({
+                type: 2,
+                title: $(this).attr('topTitle'),
+                content: url,
+                maxmin: true,
+                area: [$(this).attr('topWidth'), $(this).attr('topHeight')],
+            });
         }
     });
 

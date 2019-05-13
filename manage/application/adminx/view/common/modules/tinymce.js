@@ -17,6 +17,7 @@ layui.define(function(exports){
         automatic_uploads: true, //开启点击图片上传时，自动进行远程上传操作
         images_upload_base_path: '', // 图片上传的基本路径
         convert_urls:false,
+        image_dimensions:false,
         images_upload_url: '/manage/adminx/upload/image?from=editor', //图片上传的具体地址，该选项一定需要设置，才会出现图片上传选项
         images_reuse_filename: true,
 
